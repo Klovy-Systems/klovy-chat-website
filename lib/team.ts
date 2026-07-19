@@ -1,3 +1,5 @@
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+
 export type TeamMember = {
   id: string;
   username: string;
@@ -15,8 +17,20 @@ const TEAM = [
   { id: "690135413079408680", role: "Moderator" },
 ];
 
+function getDiscordBotToken(): string | undefined {
+  const fromProcess = process.env.DISCORD_BOT_TOKEN?.trim();
+  if (fromProcess) return fromProcess;
+
+  try {
+    const env = getCloudflareContext().env as { DISCORD_BOT_TOKEN?: string };
+    return env.DISCORD_BOT_TOKEN?.trim();
+  } catch {
+    return undefined;
+  }
+}
+
 export async function getTeamMembers(): Promise<TeamMember[]> {
-  const discordBotToken = process.env.DISCORD_BOT_TOKEN?.trim();
+  const discordBotToken = getDiscordBotToken();
 
   if (!discordBotToken) {
     return [];
