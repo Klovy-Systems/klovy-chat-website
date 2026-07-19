@@ -4,42 +4,79 @@ import matter from "gray-matter";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
-export function getAllBlogs() {
-  const files = fs.readdirSync(BLOG_DIR);
+export type BlogMeta = {
+  slug: string;
+  title: string;
+  description: string;
+  image?: string;
+  tags: string[];
+  readingTime?: string;
+};
 
-  return files.map((file) => {
-    const slug = file.replace(".md", "");
-    const fullPath = path.join(BLOG_DIR, file);
-    const fileContent = fs.readFileSync(fullPath, "utf-8");
-    const { data } = matter(fileContent);
+export type BlogPost = BlogMeta & {
+  content: string;
+};
 
-    return {
-      slug,
-      title: data.title,
-      description: data.description,
-      image: data.image,
-      tags: data.tags || [],
-      readingTime: data.readingTime,
-    };
-  });
+function getBlogSlugsFromDisk(): string[] {
+  if (!fs.existsSync(BLOG_DIR)) return [];
+
+  return fs
+    .readdirSync(BLOG_DIR, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name);
 }
 
-export function getBlog(slug: string) {
-  const fullPath = path.join(BLOG_DIR, `${slug}.md`);
+function readBlogFile(slug: string, lang: string): BlogPost | null {
+  const localizedPath = path.join(BLOG_DIR, slug, `${lang}.md`);
+  const fallbackPath = path.join(BLOG_DIR, slug, "pl.md");
+  const finalPath = fs.existsSync(localizedPath) ? localizedPath : fallbackPath;
 
-  if (!fs.existsSync(fullPath)) return null;
+  if (!fs.existsSync(finalPath)) return null;
 
-  const fileContent = fs.readFileSync(fullPath, "utf-8");
+  const fileContent = fs.readFileSync(finalPath, "utf-8");
   const { data, content } = matter(fileContent);
 
   return {
-    meta: {
-      title: data.title,
-      description: data.description,
-      image: data.image,
-      tags: data.tags || [],
-      readingTime: data.readingTime,
-    },
+    slug,
+    title: data.title,
+    description: data.description,
+    image: data.image,
+    tags: data.tags || [],
+    readingTime: data.readingTime,
     content,
+  };
+}
+
+export function getBlogSlugs(): string[] {
+  return getBlogSlugsFromDisk();
+}
+
+export function getAllBlogs(lang: string): BlogMeta[] {
+  return getBlogSlugsFromDisk()
+    .map((slug) => {
+      const post = readBlogFile(slug, lang);
+      if (!post) return null;
+
+      const { content: _content, ...meta } = post;
+      return meta;
+    })
+    .filter((post): post is BlogMeta => post !== null);
+}
+
+export function getBlogPost(slug: string, lang: string): BlogPost | null {
+  return readBlogFile(slug, lang);
+}
+
+export function getAllBlogsByLang(): Record<string, BlogMeta[]> {
+  return {
+    pl: getAllBlogs("pl"),
+    en: getAllBlogs("en"),
+  };
+}
+
+export function getBlogPostByLang(slug: string): Record<string, BlogPost | null> {
+  return {
+    pl: getBlogPost(slug, "pl"),
+    en: getBlogPost(slug, "en"),
   };
 }

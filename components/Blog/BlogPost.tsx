@@ -1,40 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import type { BlogPost as BlogPostType } from "@/lib/blog";
 import BlogContent from "./BlogContent";
 
-type BlogMeta = {
-  title: string;
-  description: string;
-  image?: string;
-  tags?: string[];
-  readingTime?: string;
+type BlogPostProps = {
+  postsByLang: Record<string, BlogPostType | null>;
 };
 
-export default function BlogPost({ slug }: { slug: string }) {
+export default function BlogPost({ postsByLang }: BlogPostProps) {
   const { lang } = useLanguage();
-  const [content, setContent] = useState<string | null>(null);
-  const [meta, setMeta] = useState<BlogMeta | null>(null);
+  const post = postsByLang[lang] ?? postsByLang.pl;
 
-  useEffect(() => {
-    fetch(`/api/blog/${slug}?lang=${lang}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMeta(data.meta);
-        setContent(data.content);
-      });
-  }, [slug, lang]);
-
-  if (!content || !meta) return <p>Loading...</p>;
+  if (!post) {
+    return (
+      <article className="w-full py-section">
+        <div className="max-w-7xl mx-auto px-spacing_lg xl:px-spacing_xl">
+          <p className="opacity-70">Nie znaleziono wpisu.</p>
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article className="w-full py-section">
       <div className="max-w-7xl mx-auto px-spacing_lg xl:px-spacing_xl">
-        <h1 className="text-4xl font-bold mb-4">{meta.title}</h1>
-        <p className="opacity-70 mb-6">{meta.description}</p>
+        <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+        <p className="opacity-70 mb-6">{post.description}</p>
 
-        <BlogContent content={content} />
+        <BlogContent content={post.content} />
       </div>
     </article>
   );

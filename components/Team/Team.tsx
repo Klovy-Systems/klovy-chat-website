@@ -6,39 +6,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/i18n/useTranslation";
+import type { TeamMember } from "@/lib/team";
 
-export default function Team() {
+type TeamProps = {
+  users: TeamMember[];
+};
+
+export default function Team({ users }: TeamProps) {
   const { lang } = useLanguage();
   const { t } = useTranslation(lang);
 
-  const [users, setUsers] = useState<any[]>([]);
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(1);
   const [perPage, setPerPage] = useState(3);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    fetch("/api/team")
-      .then(async (res) => {
-        if (!res.ok) throw new Error("Failed to load team");
-
-        const data = await res.json();
-        if (!Array.isArray(data)) throw new Error("Invalid team payload");
-
-        return data;
-      })
-      .then((data) => {
-        if (isMounted) setUsers(data);
-      })
-      .catch(() => {
-        if (isMounted) setUsers([]);
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -88,39 +68,39 @@ export default function Team() {
           </p>
         ) : (
           <div className="relative w-full flex items-center justify-center">
-          <button
-            onClick={() => paginate(-1)}
-            className="absolute left-0 md:-left-8 flex p-2 rounded-full border border-light_border dark:border-dark_border hover:bg-primary/10 transition z-10 bg-light_bg dark:bg-dark_bg"
-            aria-label="Previous"
-          >
-            <ChevronLeft />
-          </button>
+            <button
+              onClick={() => paginate(-1)}
+              className="absolute left-0 md:-left-8 flex p-2 rounded-full border border-light_border dark:border-dark_border hover:bg-primary/10 transition z-10 bg-light_bg dark:bg-dark_bg"
+              aria-label="Previous"
+            >
+              <ChevronLeft />
+            </button>
 
-          <div className="w-full overflow-hidden">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={page}
-                initial={{
-                  x: direction > 0 ? 120 : -120,
-                  opacity: 0,
-                  scale: 0.96,
-                }}
-                animate={{ x: 0, opacity: 1, scale: 1 }}
-                exit={{
-                  x: direction > 0 ? -120 : 120,
-                  opacity: 0,
-                  scale: 0.96,
-                }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-spacing_xl w-full justify-items-center"
-              >
-                {visible.map((user) => (
-                  <a
-                    key={user.id}
-                    href={user.profile}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
+            <div className="w-full overflow-hidden">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={page}
+                  initial={{
+                    x: direction > 0 ? 120 : -120,
+                    opacity: 0,
+                    scale: 0.96,
+                  }}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  exit={{
+                    x: direction > 0 ? -120 : 120,
+                    opacity: 0,
+                    scale: 0.96,
+                  }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-spacing_xl w-full justify-items-center"
+                >
+                  {visible.map((user) => (
+                    <a
+                      key={user.id}
+                      href={user.profile}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
                       group
                       w-full max-w-sm
                       flex flex-col
@@ -129,39 +109,37 @@ export default function Team() {
                       transition
                       hover:-translate-y-1
                     "
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="relative w-16 h-16 flex-shrink-0">
-                        <Image
-                          src={user.avatar}
-                          alt={user.username}
-                          fill
-                          className="rounded-full object-cover"
-                        />
-                      </div>
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="relative w-16 h-16 flex-shrink-0">
+                          <Image
+                            src={user.avatar}
+                            alt={user.username}
+                            fill
+                            className="rounded-full object-cover"
+                          />
+                        </div>
 
-                      <div className="flex flex-col">
-                        <span className="text-lg font-semibold text-light_text dark:text-dark_text">
-                          {user.username}
-                        </span>
-                        <span className="text-sm text-primary">
-                          {user.role}
-                        </span>
+                        <div className="flex flex-col">
+                          <span className="text-lg font-semibold text-light_text dark:text-dark_text">
+                            {user.username}
+                          </span>
+                          <span className="text-sm text-primary">{user.role}</span>
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                ))}
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                    </a>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
 
-          <button
-            onClick={() => paginate(1)}
-            className="absolute right-0 md:-right-8 flex p-2 rounded-full border border-light_border dark:border-dark_border hover:bg-primary/10 transition z-10 bg-light_bg dark:bg-dark_bg"
-            aria-label="Next"
-          >
-            <ChevronRight />
-          </button>
+            <button
+              onClick={() => paginate(1)}
+              className="absolute right-0 md:-right-8 flex p-2 rounded-full border border-light_border dark:border-dark_border hover:bg-primary/10 transition z-10 bg-light_bg dark:bg-dark_bg"
+              aria-label="Next"
+            >
+              <ChevronRight />
+            </button>
           </div>
         )}
 

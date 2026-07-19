@@ -1,4 +1,10 @@
-import { NextResponse } from "next/server";
+export type TeamMember = {
+  id: string;
+  username: string;
+  avatar: string;
+  role: string;
+  profile: string;
+};
 
 const TEAM = [
   { id: "668879650792931329", role: "Founder & CEO" },
@@ -9,11 +15,11 @@ const TEAM = [
   { id: "690135413079408680", role: "Moderator" },
 ];
 
-export async function GET() {
+export async function getTeamMembers(): Promise<TeamMember[]> {
   const discordBotToken = process.env.DISCORD_BOT_TOKEN?.trim();
 
   if (!discordBotToken) {
-    return NextResponse.json([]);
+    return [];
   }
 
   const results = await Promise.all(
@@ -47,5 +53,5 @@ export async function GET() {
     }),
   );
 
-  return NextResponse.json(results.filter(Boolean));
+  return results.filter((member): member is TeamMember => member !== null);
 }
