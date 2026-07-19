@@ -13,7 +13,7 @@ export function getDiscordAvatarUrl(userId: string, avatarHash?: string): string
     return `https://cdn.discordapp.com/avatars/${userId}/${avatarHash}.png?size=256`;
   }
 
-  const index = Number((BigInt(userId) >> 22n) % 6n);
+  const index = Number((BigInt(userId) >> BigInt(22)) % BigInt(6));
   return `https://cdn.discordapp.com/embed/avatars/${index}.png`;
 }
 
