@@ -62,11 +62,7 @@ export default function Team({ users }: TeamProps) {
           {t("team.description")}
         </p>
 
-        {users.length === 0 ? (
-          <p className="text-light_text/80 dark:text-dark_text/80 text-center">
-            Team data is currently unavailable.
-          </p>
-        ) : (
+        {users.length === 0 ? null : (
           <div className="relative w-full flex items-center justify-center">
             <button
               onClick={() => paginate(-1)}
