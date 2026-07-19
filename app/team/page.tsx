@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
-import TeamGrid from "@/components/Team/TeamGrid";
+import TeamCarousel from "@/components/Team/TeamCarousel";
 import TeamIntro from "@/components/Team/TeamIntro";
 
 export const dynamic = "force-static";
@@ -10,7 +10,7 @@ export default function TeamPage() {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <TeamIntro>
-        <TeamGrid />
+        <TeamCarousel />
       </TeamIntro>
       <Footer />
     </div>

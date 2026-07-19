@@ -1,14 +1,22 @@
 export type TeamMember = {
   id: string;
-  /** Nick wyświetlany na stronie */
   name: string;
-  /** Opcjonalnie: /team/nick.webp albo pełny URL — bez tego pokaże się inicjał */
-  avatar?: string;
   role: string;
   profile: string;
+  /** Opcjonalny hash avatara z Discord — bez tego używany jest domyślny avatar z CDN */
+  avatarHash?: string;
 };
 
-/** Uzupełnij name każdej osoby. Opcjonalnie dodaj zdjęcia do public/team/ */
+/** Domyślny avatar Discord wyliczany z ID użytkownika */
+export function getDiscordAvatarUrl(userId: string, avatarHash?: string): string {
+  if (avatarHash) {
+    return `https://cdn.discordapp.com/avatars/${userId}/${avatarHash}.png?size=256`;
+  }
+
+  const index = Number((BigInt(userId) >> 22n) % 6n);
+  return `https://cdn.discordapp.com/embed/avatars/${index}.png`;
+}
+
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "668879650792931329",
