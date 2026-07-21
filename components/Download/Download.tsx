@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/i18n/useTranslation";
+import { WINDOWS_INSTALLER } from "@/lib/downloads";
 
 export default function Download() {
   const { lang } = useLanguage();
@@ -40,14 +41,14 @@ export default function Download() {
               </div>
             </div>
 
-            <button
-              disabled
-              className="px-6 py-2 rounded-lg bg-light_border/40 dark:bg-dark_border/40 text-light_text/70 dark:text-dark_text/70 
-                         cursor-not-allowed select-none transition-all duration-200
-                         hover:bg-light_border/60 dark:hover:bg-dark_border/60"
+            <a
+              href={WINDOWS_INSTALLER.href}
+              download={WINDOWS_INSTALLER.filename}
+              className="px-6 py-2 rounded-lg bg-primary text-white font-medium
+                         transition-all duration-200 hover:bg-primary/90"
             >
-              {t("download.soon")}
-            </button>
+              {t("nav.download")}
+            </a>
           </div>
 
           <div className="flex items-center justify-between p-4 border border-light_border dark:border-dark_border rounded-xl bg-light_bg/40 dark:bg-dark_bg/40">

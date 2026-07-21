@@ -9,6 +9,7 @@
     "lint": "eslint",
     "prettier": "prettier --write .",
     "new-post": "node scripts/new-post.mjs",
+    "copy-windows-installer": "node scripts/copy-windows-installer.mjs",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy -- --keep-vars",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload -- --keep-vars"
