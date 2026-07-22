@@ -107,7 +107,7 @@ export const translations = {
       close: "Zamknij",
       description: "Wybierz dokument, który chcesz otworzyć.",
       updated: "Ostatnia aktualizacja: 9 lipca 2026",
-      privacyUpdated: "Ostatnia aktualizacja: 20 lipca 2026",
+      privacyUpdated: "Ostatnia aktualizacja: 22 lipca 2026",
       privacyUrl: "/docs/Privacy-Policy-Klovy-Chat.pdf",
       termsUrl: "/docs/Terms-of-Use-Klovy-Chat.pdf",
       guidelinesUrl: "/docs/Community-Guidelines-Klovy-Chat.pdf",
