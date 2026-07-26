@@ -3,8 +3,6 @@ import { Poppins, Space_Grotesk } from "next/font/google";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import CookieConsent from "@/components/Cookie/CookieConsent";
-import WebStat from "@/components/Analytics/WebStat";
-import { getWebStatScript } from "@/lib/webstat";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -60,18 +58,12 @@ export default function RootLayout({
             `,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: getWebStatScript(),
-          }}
-        />
       </head>
       <body className="antialiased bg-light_bg dark:bg-dark_bg text-light_text dark:text-dark_text">
         <ThemeProvider>
           <LanguageProvider>
             {children}
             <CookieConsent />
-            <WebStat />
           </LanguageProvider>
         </ThemeProvider>
       </body>
