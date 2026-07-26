@@ -4,6 +4,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import CookieConsent from "@/components/Cookie/CookieConsent";
 import WebStat from "@/components/Analytics/WebStat";
+import { getWebStatScript } from "@/lib/webstat";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -57,6 +58,11 @@ export default function RootLayout({
                 }
               })();
             `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: getWebStatScript(),
           }}
         />
       </head>
