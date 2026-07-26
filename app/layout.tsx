@@ -3,6 +3,7 @@ import { Poppins, Space_Grotesk } from "next/font/google";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import CookieConsent from "@/components/Cookie/CookieConsent";
+import WebStat from "@/components/Analytics/WebStat";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -64,6 +65,7 @@ export default function RootLayout({
           <LanguageProvider>
             {children}
             <CookieConsent />
+            <WebStat />
           </LanguageProvider>
         </ThemeProvider>
       </body>
