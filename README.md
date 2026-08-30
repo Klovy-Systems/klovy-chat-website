@@ -4,7 +4,7 @@
 
 The official website of Klovy Chat.
 
-Oficjalna strona komunikatora **Klovy Chat** (Klovy Systems) — Next.js, TypeScript i Tailwind CSS.
+Oficjalna strona komunikatora **Klovy Chat** — Next.js, TypeScript i Tailwind CSS.
 
 Produkcja: [klovy.chat](https://klovy.chat)
 
@@ -149,4 +149,4 @@ Luki zgłaszaj prywatnie przez [GitHub Security Advisories](https://github.com/k
 
 Kod jest udostępniony na **[Klovy License](LICENSE)** — użycie osobiste, edukacyjne i niekomercyjne. Dystrybucja komercyjna, konkurencyjny komunikator oraz użycie marek Klovy wymagają pisemnej zgody Jakuba Maksymowicza. Zgłoszenie PR, błędu lub audytu bezpieczeństwa oznacza zgodę na warunki kontrybucji z licencji (pkt 7–11).
 
-© 2026 [Jakub Maksymowicz](https://github.com/klovy-chat)
+© 2026 [Jakub Maksymowicz](https://github.com/Klovy06)
