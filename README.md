@@ -1,103 +1,152 @@
-#  Klovy Chat — Website
+# klovy-chat-website
 
-Oficjalna strona komunikatora **Klovy Chat** platformy **Klovy Systems** — zbudowana w Next.js z TypeScript i Tailwind CSS.
+[![License: Klovy](https://img.shields.io/badge/License-Klovy-blue.svg)](LICENSE)
+
+The official website of Klovy Chat.
+
+Oficjalna strona komunikatora **Klovy Chat** (Klovy Systems) — Next.js, TypeScript i Tailwind CSS.
+
+Produkcja: [klovy.chat](https://klovy.chat)
 
 ---
 
-##  O projekcie
+## O projekcie
 
-Klovy Chat Website to główna strona internetowa komunikatora Klovy Chat. Prezentuje funkcje produktu, aktualności oraz informacje dla użytkowników i potencjalnych klientów platformy Klovy Systems.
+Strona marketingowa i informacyjna Klovy Chat: funkcje produktu, zespół, wsparcie, pobieranie aplikacji desktop oraz blog. Hostowana na Cloudflare (OpenNext).
+
+Trasy: `/` (start), `/about`, `/team`, `/support`, `/download`, `/blog`.
+
+### Ekosystem
+
+| Repo | Rola |
+|------|------|
+| [klovy-chat-backend](https://github.com/Klovy-Systems/klovy-chat-backend) | API i WebSocket |
+| [klovy-chat-frontend](https://github.com/Klovy-Systems/klovy-chat-frontend) | Aplikacja web (`app.klovy.chat`) |
+| [klovy-chat-website](https://github.com/Klovy-Systems/klovy-chat-website) | Strona (`klovy.chat`) |
+| [klovy-chat-application](https://github.com/Klovy-Systems/klovy-chat-application) | Desktop (Tauri) |
 
 ---
 
-##  Uruchomienie lokalne
+## Funkcje
 
-### Wymagania
+- Landing z funkcjami produktu
+- Blog (Markdown PL / EN)
+- Pobieranie instalatorów desktop
+- Strona zespołu i wsparcia
+- i18n: polski i angielski
+- Motyw jasny / ciemny
+
+---
+
+## Wymagania
 
 - **Node.js** >= 18.x
 - **npm** >= 9.x
 
-### Instalacja
+---
+
+## Uruchomienie lokalne
 
 ```bash
-# Sklonuj repozytorium
-git clone https://github.com/klovy-systems/klovy-chat-website.git
+git clone https://github.com/Klovy-Systems/klovy-chat-website.git
 cd klovy-chat-website
-
-# Zainstaluj zależności
 npm install
-```
-
-### Konfiguracja środowiska
-
-Utwórz plik `.env.local` na podstawie `.env.example` i uzupełnij token bota Discord:
-
-```bash
 cp .env.example .env.local
 ```
 
-Przykład:
-
-```env
-DISCORD_BOT_TOKEN=your_discord_bot_token_here
-```
-
-### Uruchomienie serwera deweloperskiego
+`DISCORD_BOT_TOKEN` w [`.env.example`](.env.example) jest opcjonalny (avatary zespołu z Discord). Strona wstaje bez niego.
 
 ```bash
 npm run dev
 ```
 
-Otwórz [http://localhost:3000](http://localhost:3000) w przeglądarce, aby zobaczyć wynik.
-
-### Budowanie produkcyjne
+Otwórz [http://localhost:3000](http://localhost:3000).
 
 ```bash
 npm run build
 npm run start
 ```
 
+Produkcja (Cloudflare, utrzymujący):
+
+```bash
+npm run deploy
+```
+
+Nowy wpis na blogu:
+
+```bash
+npm run new-post -- nazwa-wpisu
+```
+
+Szczegóły: [content/blog/README.md](content/blog/README.md).
+
 ---
 
-##  Technologie
+## Zmienne środowiska
 
-- **Next.js** — framework React z SSR i SSG
-- **TypeScript** — typowany JavaScript dla większej niezawodności kodu
-- **Tailwind CSS** — utility-first styling
-- **next/font** — automatyczna optymalizacja fontu **Geist**
-- **i18n** — obsługa wielu języków
+Szablon: [`.env.example`](.env.example) (`cp .env.example .env.local`). Nie commituj `.env.local`.
+
+| Zmienna | Opis |
+|---------|------|
+| `DISCORD_BOT_TOKEN` | Token bota Discord — avatary na stronie zespołu |
 
 ---
 
-##  Struktura projektu
+## Technologie
+
+- **Next.js** — App Router (SSR / SSG)
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion** — animacje
+- **react-markdown** — blog
+- **OpenNext + Cloudflare Workers** — hosting
+- **i18n** — PL / EN
+
+---
+
+## Struktura projektu
 
 ```
 klovy-chat-website/
 ├── app/                     # App Router (strony i layouty)
-├── components/              # Komponenty UI
+├── components/              # UI (MainPage, Blog, Team, Download, …)
 ├── content/
-│   └── blog/                # Treści bloga (MDX / Markdown)
-├── contexts/                # React Context (stan globalny)
-├── i18n/                    # Pliki tłumaczeń
-├── lib/                     # Helpery i funkcje narzędziowe
-├── public/                  # Statyczne zasoby (obrazy, ikony)
-├── next.config.ts           # Konfiguracja Next.js
-├── tailwind.config.js       # Konfiguracja Tailwind CSS
-├── tsconfig.json            # Konfiguracja TypeScript
+│   └── blog/                # Wpisy Markdown (pl.md / en.md)
+├── i18n/                    # Tłumaczenia
+├── lib/                     # Blog, downloads, zespół
+├── public/                  # Statyczne zasoby
+├── scripts/                 # new-post, copy-windows-installer
+├── wrangler.jsonc           # Cloudflare
+├── next.config.ts
 └── package.json
 ```
 
 ---
 
-##  Contributing
+## Contributing
 
-Repozytorium jest prywatne. Zmiany wprowadzamy przez program Github Desktop.
+Kod jest publiczny na [Klovy License](LICENSE). Issue i pull requesty są mile widziane.
 
+1. Zrób [fork](https://github.com/Klovy-Systems/klovy-chat-website/fork)
+2. Utwórz branch: `git checkout -b feature/opis-zmiany`
+3. Commit (bez `.env.local` i sekretów)
+4. Otwórz pull request do `main`
 
-##  Licencja
+Opisz w PR **co** i **dlaczego**. Wpisy na blog i tłumaczenia też są OK.
 
-Prywatne repozytorium. © Klovy Systems. Wszelkie prawa zastrzeżone. Nieautoryzowane kopiowanie, dystrybucja lub wykorzystanie kodu jest zabronione. Wszelkie prawa należą do właściciela projektu Klovy Systems Jakuba Maksymowicza (Klovy).
+Pomoc przy stronie: [ogzeyh](https://github.com/ogzeyh)
 
-## Pomoc przy stronie
+---
 
-ogzeyh
+## Bezpieczeństwo
+
+Luki zgłaszaj prywatnie przez [GitHub Security Advisories](https://github.com/Klovy-Systems/klovy-chat-website/security/advisories/new). Nie otwieraj publicznego issue z exploitami.
+
+---
+
+## Licencja
+
+Kod jest udostępniony na **[Klovy License](LICENSE)** — użycie osobiste, edukacyjne i niekomercyjne. Dystrybucja komercyjna, konkurencyjny komunikator oraz użycie marek Klovy wymagają pisemnej zgody Jakuba Maksymowicza. Zgłoszenie PR, błędu lub audytu bezpieczeństwa oznacza zgodę na warunki kontrybucji z licencji (pkt 7–11).
+
+© 2026 [Jakub Maksymowicz](https://github.com/Klovy-Systems)
