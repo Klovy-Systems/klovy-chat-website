@@ -49,6 +49,14 @@ export async function fetchDiscordUser(
 
   const guildId = process.env.DISCORD_GUILD_ID?.trim() || DEFAULT_GUILD_ID;
 
+  const memberResult = await fetchDiscordJson<{
+    user: DiscordUser;
+  }>(`https://discord.com/api/v10/guilds/${guildId}/members/${userId}`, token);
+
+  if (memberResult.ok) {
+    return memberResult.data.user;
+  }
+
   const userResult = await fetchDiscordJson<DiscordUser>(
     `https://discord.com/api/v10/users/${userId}`,
     token,
