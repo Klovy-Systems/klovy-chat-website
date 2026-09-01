@@ -3,8 +3,6 @@ import Navbar from "@/components/Navbar/Navbar";
 import TeamCarousel from "@/components/Team/TeamCarousel";
 import TeamIntro from "@/components/Team/TeamIntro";
 import { TEAM_MEMBERS } from "@/lib/team";
-import TeamCarousel from "@/components/Team/TeamCarousel";
-import TeamIntro from "@/components/Team/TeamIntro";
 
 export default function TeamPage() {
   return (
