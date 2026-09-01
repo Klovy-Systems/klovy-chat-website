@@ -2,7 +2,7 @@ import { fetchDiscordUser } from "@/lib/discord";
 import { TEAM_MEMBERS, type TeamMember } from "@/lib/team";
 
 export async function getTeamMembersWithAvatars(): Promise<TeamMember[]> {
-  const token = process.env.DISCORD_BOT_TOKEN;
+  const token = process.env.DISCORD_BOT_TOKEN?.trim();
   if (!token) return TEAM_MEMBERS;
 
   return Promise.all(

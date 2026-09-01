@@ -44,15 +44,27 @@ export const TEAM_MEMBERS: TeamMember[] = [
     profile: "https://discord.com/users/1105200996021440584",
   },
   {
-    id: "1087829498810073269",
+    id: "690135413079408680",
     name: "Bebasowy",
     role: "Moderator",
     profile: "https://discord.com/users/1087829498810073269",
   },
   {
-    id: "690135413079408680",
+    id: "1087829498810073269",
     name: "Zayden",
     role: "Moderator",
     profile: "https://discord.com/users/690135413079408680",
+  },
+  {
+    id: "1013038112038981682",
+    name: "Kocurowy96",
+    role: "Support",
+    profile: "https://discord.com/users/1013038112038981682",
+  },
+  {
+    id: "1427622869575405668",
+    name: "KitsunePL",
+    role: "Support",
+    profile: "https://discord.com/users/1427622869575405668",
   },
 ];

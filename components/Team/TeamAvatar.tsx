@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getDiscordAvatarUrl } from "@/lib/team";
 
 type TeamAvatarProps = {
@@ -13,6 +13,10 @@ export default function TeamAvatar({ userId, name, avatarHash }: TeamAvatarProps
   const [failed, setFailed] = useState(false);
   const avatarUrl = getDiscordAvatarUrl(userId, avatarHash);
   const initial = name.charAt(0).toUpperCase() || "?";
+
+  useEffect(() => {
+    setFailed(false);
+  }, [avatarUrl]);
 
   if (failed) {
     return (

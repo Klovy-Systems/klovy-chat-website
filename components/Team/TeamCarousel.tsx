@@ -10,10 +10,28 @@ type TeamCarouselProps = {
   members: TeamMember[];
 };
 
-export default function TeamCarousel({ members }: TeamCarouselProps) {
+export default function TeamCarousel({ members: initialMembers }: TeamCarouselProps) {
+  const [members, setMembers] = useState(initialMembers);
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(1);
   const [perPage, setPerPage] = useState(3);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/team/avatars")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: TeamMember[] | null) => {
+        if (!cancelled && Array.isArray(data)) {
+          setMembers(data);
+        }
+      })
+      .catch(() => {});
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
