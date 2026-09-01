@@ -3,10 +3,14 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { TEAM_MEMBERS } from "@/lib/team";
+import { type TeamMember } from "@/lib/team";
 import TeamAvatar from "./TeamAvatar";
 
-export default function TeamCarousel() {
+type TeamCarouselProps = {
+  members: TeamMember[];
+};
+
+export default function TeamCarousel({ members }: TeamCarouselProps) {
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(1);
   const [perPage, setPerPage] = useState(3);
@@ -27,8 +31,8 @@ export default function TeamCarousel() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const pages = Math.max(1, Math.ceil(TEAM_MEMBERS.length / perPage));
-  const visible = TEAM_MEMBERS.slice(page * perPage, page * perPage + perPage);
+  const pages = Math.max(1, Math.ceil(members.length / perPage));
+  const visible = members.slice(page * perPage, page * perPage + perPage);
 
   const paginate = (dir: number) => {
     setDirection(dir);
@@ -67,7 +71,7 @@ export default function TeamCarousel() {
                 href={member.profile}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center text-center w-full max-w-xs p-6 rounded-2xl border border-light_border dark:border-dark_border hover:border-primary/40 hover:-translate-y-1 transition"
+                className="group flex flex-col items-center text-center w-full max-w-xs p-6 rounded-2xl hover:-translate-y-1 transition"
               >
                 <div className="mb-5">
                   <TeamAvatar

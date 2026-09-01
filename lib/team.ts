@@ -10,7 +10,8 @@ export type TeamMember = {
 /** Domyślny avatar Discord wyliczany z ID użytkownika */
 export function getDiscordAvatarUrl(userId: string, avatarHash?: string): string {
   if (avatarHash) {
-    return `https://cdn.discordapp.com/avatars/${userId}/${avatarHash}.png?size=256`;
+    const ext = avatarHash.startsWith("a_") ? "gif" : "png";
+    return `https://cdn.discordapp.com/avatars/${userId}/${avatarHash}.${ext}?size=256`;
   }
 
   const index = Number((BigInt(userId) >> BigInt(22)) % BigInt(6));

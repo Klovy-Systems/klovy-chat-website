@@ -17,7 +17,7 @@ export default function TeamAvatar({ userId, name, avatarHash }: TeamAvatarProps
   if (failed) {
     return (
       <div
-        className="w-28 h-28 rounded-full bg-primary/20 text-primary flex items-center justify-center text-3xl font-bold shrink-0 ring-2 ring-primary/20"
+        className="w-28 h-28 rounded-full bg-primary/20 text-primary flex items-center justify-center text-3xl font-bold shrink-0"
         aria-hidden
       >
         {initial}
@@ -32,7 +32,7 @@ export default function TeamAvatar({ userId, name, avatarHash }: TeamAvatarProps
       alt={name}
       width={112}
       height={112}
-      className="w-28 h-28 rounded-full object-cover shrink-0 ring-2 ring-primary/20 bg-primary/10"
+      className="w-28 h-28 rounded-full object-cover shrink-0 bg-primary/10"
       onError={() => setFailed(true)}
       referrerPolicy="no-referrer"
     />
