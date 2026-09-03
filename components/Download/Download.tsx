@@ -3,7 +3,13 @@
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/i18n/useTranslation";
-import { WINDOWS_INSTALLER } from "@/lib/downloads";
+import { GITHUB_RELEASES_URL } from "@/lib/downloads";
+
+const releaseLinkProps = {
+  href: GITHUB_RELEASES_URL,
+  target: "_blank" as const,
+  rel: "noopener noreferrer",
+};
 
 export default function Download() {
   const { lang } = useLanguage();
@@ -42,8 +48,7 @@ export default function Download() {
             </div>
 
             <a
-              href={WINDOWS_INSTALLER.href}
-              download={WINDOWS_INSTALLER.filename}
+              {...releaseLinkProps}
               className="px-6 py-2 rounded-lg bg-primary text-white font-medium
                          transition-all duration-200 hover:bg-primary/90"
             >
@@ -64,27 +69,25 @@ export default function Download() {
               </div>
             </div>
 
-            <button
-              disabled
-              className="px-6 py-2 rounded-lg bg-light_border/40 dark:bg-dark_border/40 text-light_text/70 dark:text-dark_text/70 
-                         cursor-not-allowed select-none transition-all duration-200
-                         hover:bg-light_border/60 dark:hover:bg-dark_border/60"
+            <a
+              {...releaseLinkProps}
+              className="px-6 py-2 rounded-lg bg-primary text-white font-medium
+                         transition-all duration-200 hover:bg-primary/90"
             >
-              {t("download.soon")}
-            </button>
+              {t("nav.download")}
+            </a>
           </div>
         </div>
 
         <p className="text-light_text/70 dark:text-dark_text/70 text-sm max-w-xl leading-relaxed mt-4">
           {t("download.footer")}{" "}
           <a
-            href="https://discord.com/invite/rcjCTm9MHS"
-            target="_blank"
+            {...releaseLinkProps}
             className="text-primary underline"
           >
-            {t("download.discord")}
-          </a>{" "}
-          {t("download.footerEnd")}
+            {t("download.releases")}
+          </a>
+          .
         </p>
       </div>
     </section>

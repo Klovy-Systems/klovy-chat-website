@@ -70,16 +70,15 @@ export const translations = {
     download: {
       title: "Pobierz Klovy Chat",
       subtitle:
-        "Pobierz najnowszą wersję Klovy Chat na swoje urządzenie. Wybierz system operacyjny i pobierz instalator.",
+        "Pobierz najnowszą wersję Klovy Chat na swoje urządzenie. Instalatory dla Windows i Linux są na GitHub Releases.",
       windows: "Windows",
       windows_sub: "Dla Windows 10/11 (64-bit)",
       linux: "Linux",
-      linux_sub: "Dla Linux (AppImage, 64-bit)",
+      linux_sub: "AppImage, .deb, .rpm (64-bit)",
       soon: "Wkrótce*",
+      releases: "GitHub Releases",
       footer:
-        "Aplikacja Klovy Chat jest w fazie publicznej bety, dlatego prosimy o wyrozumiałość. Dołącz do",
-      discord: "Discorda",
-      footerEnd: "lub sprawdź aktualizacje na stronie!",
+        "Aplikacja Klovy Chat jest w fazie publicznej bety, dlatego prosimy o wyrozumiałość. Pobierz aplikację na",
     },
     footer: {
       privacy: "Polityka Prywatności",
@@ -202,16 +201,15 @@ export const translations = {
     download: {
       title: "Download Klovy Chat",
       subtitle:
-        "Download the latest version of Klovy Chat to your device. Choose your operating system and download the installer.",
+        "Download the latest Klovy Chat for your device. Windows and Linux installers are on GitHub Releases.",
       windows: "Windows",
       windows_sub: "For Windows 10/11 (64-bit)",
       linux: "Linux",
-      linux_sub: "For Linux (AppImage, 64-bit)",
+      linux_sub: "AppImage, .deb, .rpm (64-bit)",
       soon: "Coming soon*",
+      releases: "GitHub Releases",
       footer:
-        "The Klovy Chat application is in public beta, so please bear with us. Join",
-      discord: "Discord",
-      footerEnd: "or check updates on the website!",
+        "The Klovy Chat application is in public beta, so please bear with us. Download the app on",
     },
     footer: {
       privacy: "Privacy Policy",
