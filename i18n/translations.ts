@@ -70,7 +70,7 @@ export const translations = {
     download: {
       title: "Pobierz Klovy Chat",
       subtitle:
-        "Pobierz najnowszą wersję Klovy Chat na swoje urządzenie. Instalatory dla Windows i Linux są na GitHub Releases.",
+        "Pobierz najnowszą wersję Klovy Chat na swoje urządzenie.",
       windows: "Windows",
       windows_sub: "Dla Windows 10/11 (64-bit)",
       linux: "Linux",
@@ -201,7 +201,7 @@ export const translations = {
     download: {
       title: "Download Klovy Chat",
       subtitle:
-        "Download the latest Klovy Chat for your device. Windows and Linux installers are on GitHub Releases.",
+        "Download the latest Klovy Chat for your device.",
       windows: "Windows",
       windows_sub: "For Windows 10/11 (64-bit)",
       linux: "Linux",
