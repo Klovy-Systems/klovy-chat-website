@@ -5,6 +5,7 @@ import { useTranslation } from "@/i18n/useTranslation";
 import DocumentsModal from "@/components/Documents/DocumentsModal";
 import { SOCIAL_LINKS } from "@/lib/socials";
 import { useState } from "react";
+import Image from "next/image";
 
 type FooterLink = {
   label: string;
@@ -65,7 +66,19 @@ export default function Footer() {
       <footer className="w-full bg-light_bg dark:bg-dark_bg border-t border-light_border dark:border-dark_border">
         <div className="max-w-7xl mx-auto px-spacing_lg xl:px-spacing_xl py-10 md:py-12 w-full">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
-            <div className="lg:w-52 shrink-0">
+            <div className="lg:w-52 shrink-0 space-y-4">
+              <a href="/" className="inline-flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <Image
+                  src="/brand/logo_colour.svg"
+                  width={36}
+                  height={36}
+                  alt=""
+                  className="h-9 w-9 rounded-full"
+                />
+                <span className="font-bold text-lg tracking-tight text-light_text dark:text-dark_text">
+                  Klovy Chat
+                </span>
+              </a>
               <p className="text-sm text-light_text dark:text-dark_text">
                 © Copyright {new Date().getFullYear()} Klovy Chat
               </p>

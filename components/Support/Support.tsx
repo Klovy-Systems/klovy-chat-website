@@ -90,10 +90,10 @@ export default function Support() {
                   {t("contact.emailLabel")}
                 </p>
                 <a
-                  href="mailto:kontakt@klovy.systems"
+                  href="mailto:kontakt@klovy.chat"
                   className="text-light_text dark:text-dark_text hover:text-primary transition-colors font-medium"
                 >
-                  kontakt@klovy.systems
+                  kontakt@klovy.chat
                 </a>
               </div>
             </div>
