@@ -95,7 +95,7 @@ export default function Footer() {
   return (
     <>
       <footer className="w-full bg-light_bg dark:bg-dark_bg border-t border-light_border dark:border-dark_border">
-        <div className="max-w-7xl mx-auto px-spacing_lg xl:px-spacing_xl py-10 md:py-14 w-full">
+        <div className="px-spacing_lg xl:px-spacing_xl py-10 md:py-14 w-full flex justify-center">
           <div className="flex flex-col md:flex-row md:items-start gap-12 md:gap-24 lg:gap-32">
             <div className="shrink-0 space-y-4">
               <a href="/" className="inline-flex items-center gap-3 hover:opacity-80 transition-opacity">

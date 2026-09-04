@@ -1,13 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/i18n/useTranslation";
 
 const traits = [
-  { key: "openSource", reverse: true },
-  { key: "privacy", reverse: false },
-  { key: "security", reverse: true },
-  { key: "performance", reverse: false },
+  { key: "openSource", reverse: true, image: "/qualities/open-source.jpg" },
+  { key: "privacy", reverse: false, image: "/qualities/privacy.jpg" },
+  { key: "security", reverse: true, image: "/qualities/security.jpg" },
+  { key: "performance", reverse: false, image: "/qualities/performance.jpg" },
 ] as const;
 
 export default function Features() {
@@ -38,10 +39,15 @@ export default function Features() {
                 key={trait.key}
                 className={`flex flex-col ${rowClass} items-center gap-16`}
               >
-                <div
-                  className="hidden md:block w-full md:flex-1 max-w-xl"
-                  aria-hidden="true"
-                />
+                <div className="w-full md:flex-1 max-w-xl relative h-[220px] sm:h-[280px] md:h-[360px]">
+                  <Image
+                    src={trait.image}
+                    alt={t(`features.${trait.key}.title`)}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover rounded-2xl"
+                  />
+                </div>
 
                 <div className="w-full md:flex-1 max-w-xl space-y-4 text-center md:text-left">
                   <h3 className="text-3xl md:text-4xl font-bold text-light_text dark:text-dark_text">
