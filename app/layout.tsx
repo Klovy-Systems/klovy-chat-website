@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Poppins, Space_Grotesk } from "next/font/google";
+import { Funnel_Display } from "next/font/google";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import CookieConsent from "@/components/Cookie/CookieConsent";
 import "./globals.css";
 
-const poppins = Poppins({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-poppins",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
+const funnelDisplay = Funnel_Display({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-funnel-display",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -29,8 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="pl"
-      className={`${poppins.variable} ${spaceGrotesk.variable}`}
+      lang="en"
+      className={`${funnelDisplay.variable} ${funnelDisplay.className}`}
       suppressHydrationWarning
     >
       <head>
@@ -51,8 +45,12 @@ export default function RootLayout({
                     root.classList.remove('dark');
                     root.style.colorScheme = 'light';
                   }
+
+                  const lang = localStorage.getItem('lang');
+                  root.lang = (lang === 'pl' || lang === 'en') ? lang : 'en';
                 } catch (e) {
                   document.documentElement.classList.add('dark');
+                  document.documentElement.lang = 'en';
                 }
               })();
             `,

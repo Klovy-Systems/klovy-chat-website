@@ -28,8 +28,13 @@ function getBlogSlugsFromDisk(): string[] {
 
 function readBlogFile(slug: string, lang: string): BlogPost | null {
   const localizedPath = path.join(BLOG_DIR, slug, `${lang}.md`);
-  const fallbackPath = path.join(BLOG_DIR, slug, "pl.md");
-  const finalPath = fs.existsSync(localizedPath) ? localizedPath : fallbackPath;
+  const enPath = path.join(BLOG_DIR, slug, "en.md");
+  const plPath = path.join(BLOG_DIR, slug, "pl.md");
+  const finalPath = fs.existsSync(localizedPath)
+    ? localizedPath
+    : fs.existsSync(enPath)
+      ? enPath
+      : plPath;
 
   if (!fs.existsSync(finalPath)) return null;
 

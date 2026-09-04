@@ -10,7 +10,7 @@ export default function Roadmap() {
   return (
     <section className="w-full bg-light_bg dark:bg-dark_bg py-0">
       <div className="max-w-6xl mx-auto px-spacing_lg py-12 md:py-16 lg:py-20">
-        <div className="max-w-3xl mx-auto mt-8 md:mt-12 lg:mt-16 animate-fadeInUp">
+        <div className="max-w-3xl mx-auto mt-24 md:mt-28 lg:mt-32 animate-fadeInUp">
           <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-light_text dark:text-dark_text mb-6">
             {t("roadmap.title")}
           </h2>

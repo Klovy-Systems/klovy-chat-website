@@ -8,6 +8,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-funnel-display)", "system-ui", "sans-serif"],
+      },
       colors: {
         light_bg: "#eef3ff",
         light_text: "#0b0a12",

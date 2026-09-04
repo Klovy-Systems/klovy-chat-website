@@ -10,7 +10,7 @@ type BlogPostProps = {
 
 export default function BlogPost({ postsByLang }: BlogPostProps) {
   const { lang } = useLanguage();
-  const post = postsByLang[lang] ?? postsByLang.pl;
+  const post = postsByLang[lang] ?? postsByLang.en ?? postsByLang.pl;
 
   if (!post) {
     return (

@@ -28,22 +28,25 @@ export default function MobileMenu({
   return (
     <div
       className={`
-    xl:hidden 
-    fixed top-24 left-0 w-full 
-    bg-light_bg dark:bg-dark_bg 
-    border-t border-light_border dark:border-dark_border
-    transition-all duration-300 z-40
-    ${isOpen ? "max-h-[calc(100vh-96px)] opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
-    overflow-y-auto
-  `}
+        xl:hidden
+        fixed top-[5.5rem] left-4 right-4
+        rounded-3xl
+        bg-white/95 dark:bg-[#14131c]/95
+        backdrop-blur-xl
+        border border-light_border dark:border-white/10
+        shadow-[0_16px_48px_rgba(0,0,0,0.2)]
+        transition-all duration-300 z-40
+        ${isOpen ? "max-h-[min(80vh,640px)] opacity-100" : "max-h-0 opacity-0 overflow-hidden border-transparent shadow-none pointer-events-none"}
+        overflow-y-auto
+      `}
     >
-      <div className="px-spacing_xl py-spacing_lg space-y-spacing_xl">
-        <div className="space-y-spacing_sm">
+      <div className="px-6 py-6 space-y-6">
+        <div className="space-y-1">
           {navItems.map((item, index) => (
             <a
               key={item.href}
               href={item.href}
-              className="block text-light_text dark:text-dark_text hover:text-primary transition-all duration-300 text-lg font-medium py-spacing_xs animate-slideIn"
+              className="block text-light_text dark:text-dark_text hover:text-primary transition-all duration-300 text-lg font-medium py-2 px-3 rounded-2xl hover:bg-black/5 dark:hover:bg-white/5 animate-slideIn"
               style={{ animationDelay: `${index * 50}ms` }}
               onClick={() => setIsOpen(false)}
             >
@@ -52,51 +55,51 @@ export default function MobileMenu({
           ))}
         </div>
 
-        <div className="pt-spacing_xl border-t border-light_border dark:border-dark_border space-y-spacing_xl">
+        <div className="pt-4 border-t border-light_border dark:border-white/10 space-y-6">
           <div>
-            <div className="flex items-center gap-spacing_xs text-light/60 text-sm mb-spacing_xs">
+            <div className="flex items-center gap-2 text-light_text/60 dark:text-dark_text/60 text-sm mb-2 px-1">
               <Languages className="w-4 h-4 text-primary" />
               <span>{t("mobile.language")}</span>
             </div>
 
-            <div className="flex gap-spacing_xs">
-              <button
-                onClick={() => setLang("pl")}
-                className={`flex-1 px-spacing_sm py-spacing_xs rounded-lg border transition-all duration-300 ${
-                  lang === "pl"
-                    ? "bg-primary/10 border-primary"
-                    : "border-light_border dark:border-dark_border hover:border-primary/50"
-                }`}
-              >
-                {t("mobile.polish")}
-              </button>
-
+            <div className="flex gap-2">
               <button
                 onClick={() => setLang("en")}
-                className={`flex-1 px-spacing_sm py-spacing_xs rounded-lg border transition-all duration-300 ${
+                className={`flex-1 px-3 py-2 rounded-full border transition-all duration-300 ${
                   lang === "en"
                     ? "bg-primary/10 border-primary"
-                    : "border-light_border dark:border-dark_border hover:border-primary/50"
+                    : "border-light_border dark:border-white/10 hover:border-primary/50"
                 }`}
               >
                 {t("mobile.english")}
+              </button>
+
+              <button
+                onClick={() => setLang("pl")}
+                className={`flex-1 px-3 py-2 rounded-full border transition-all duration-300 ${
+                  lang === "pl"
+                    ? "bg-primary/10 border-primary"
+                    : "border-light_border dark:border-white/10 hover:border-primary/50"
+                }`}
+              >
+                {t("mobile.polish")}
               </button>
             </div>
           </div>
 
           <div>
-            <div className="flex items-center gap-spacing_xs text-light/60 text-sm mb-spacing_xs">
+            <div className="flex items-center gap-2 text-light_text/60 dark:text-dark_text/60 text-sm mb-2 px-1">
               <SunMoon className="w-5 h-5 text-primary" />
               <span>{t("mobile.theme")}</span>
             </div>
 
-            <div className="flex gap-spacing_xs">
+            <div className="flex gap-2">
               <button
                 onClick={() => setTheme("light")}
-                className={`flex-1 px-spacing_sm py-spacing_xs rounded-lg border flex justify-center items-center transition-all duration-300 ${
+                className={`flex-1 px-3 py-2 rounded-full border flex justify-center items-center transition-all duration-300 ${
                   theme === "light"
                     ? "bg-primary/10 border-primary"
-                    : "border-light_border dark:border-dark_border hover:border-primary/50"
+                    : "border-light_border dark:border-white/10 hover:border-primary/50"
                 }`}
               >
                 <Sun className="w-5 h-5" />
@@ -104,10 +107,10 @@ export default function MobileMenu({
 
               <button
                 onClick={() => setTheme("dark")}
-                className={`flex-1 px-spacing_sm py-spacing_xs rounded-lg border flex justify-center items-center transition-all duration-300 ${
+                className={`flex-1 px-3 py-2 rounded-full border flex justify-center items-center transition-all duration-300 ${
                   theme === "dark"
                     ? "bg-primary/10 border-primary"
-                    : "border-light_border dark:border-dark_border hover:border-primary/50"
+                    : "border-light_border dark:border-white/10 hover:border-primary/50"
                 }`}
               >
                 <Moon className="w-5 h-5" />

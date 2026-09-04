@@ -86,6 +86,11 @@ export const translations = {
       terms2: "Warunki korzystania z usługi",
       documents: "Dokumenty",
       contact: "Kontakt",
+      product: "Produkt",
+      legal: "Informacje prawne",
+      socials: "Social media",
+      tagline:
+        "Nowoczesny komunikator dla zespołów, znajomych i społeczności.",
     },
     contact: {
       title: "Kontakt",
@@ -217,6 +222,10 @@ export const translations = {
       terms2: "Terms of Use",
       documents: "Documents",
       contact: "Contact",
+      product: "Product",
+      legal: "Legal",
+      socials: "Socials",
+      tagline: "A modern messenger for teams, friends, and communities.",
     },
     contact: {
       title: "Contact",

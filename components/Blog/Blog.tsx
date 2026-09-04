@@ -10,7 +10,7 @@ type BlogProps = {
 
 export default function Blog({ blogsByLang }: BlogProps) {
   const { lang } = useLanguage();
-  const blogs = blogsByLang[lang] ?? blogsByLang.pl ?? [];
+  const blogs = blogsByLang[lang] ?? blogsByLang.en ?? blogsByLang.pl ?? [];
 
   return (
     <section className="flex-1 max-w-7xl mx-auto px-spacing_lg py-section">
