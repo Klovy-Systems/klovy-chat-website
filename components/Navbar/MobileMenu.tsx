@@ -29,7 +29,7 @@ export default function MobileMenu({
     <div
       className={`
         xl:hidden
-        fixed top-[5.5rem] left-4 right-4
+        fixed top-[6rem] left-4 right-4
         rounded-3xl
         bg-white/95 dark:bg-[#14131c]/95
         backdrop-blur-xl

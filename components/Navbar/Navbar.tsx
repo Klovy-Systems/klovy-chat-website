@@ -24,19 +24,19 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 animate-slideDown">
+    <nav className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 animate-slideDown">
       <div className="relative w-full max-w-6xl h-16 flex items-center justify-between gap-3 px-4 sm:px-5 rounded-full bg-white/85 dark:bg-[#14131c]/90 backdrop-blur-xl border border-light_border dark:border-white/10 shadow-[0_8px_32px_rgba(11,10,18,0.12)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
-        <a href="/" className="flex items-center gap-spacing_sm hover:opacity-80 transition-opacity shrink-0">
+        <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity shrink-0">
           <Image
             src="/brand/logo_colour.svg"
-            width={120}
-            height={40}
-            alt="Klovy Chat"
-            className="h-8 w-auto rounded-full"
+            width={36}
+            height={36}
+            alt=""
+            className="h-9 w-9 rounded-full"
           />
-          <h1 className="xl:hidden font-bold text-lg text-light_text dark:text-dark_text">
+          <span className="font-bold text-lg tracking-tight text-light_text dark:text-dark_text">
             Klovy Chat
-          </h1>
+          </span>
         </a>
 
         <div className="hidden xl:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
