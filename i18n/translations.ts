@@ -5,7 +5,7 @@ export const translations = {
     nav: {
       about: "O nas",
       team: "Nasz zespół",
-      support: "Wsparcie",
+      support: "Wsparcie i kontakt",
       download: "Pobierz",
       blog: "Blog",
     },
@@ -23,47 +23,32 @@ export const translations = {
       cta_learn: "Dowiedz się więcej",
     },
     features: {
-      section_title: "Najważniejsze funkcje",
+      section_title: "Najważniejsze cechy",
       section_description:
-        "Wszystko, czego potrzebujesz do szybkiej i wygodnej komunikacji - w jednym miejscu.",
-      search: {
-        title: "Wyszukiwarka czatów i kanałów",
+        "Na czym opiera się Klovy Chat — od otwartego kodu po prywatność, bezpieczeństwo i wydajność.",
+      openSource: {
+        title: "Open Source",
         description:
-          "Funkcja pozwala szybko odnaleźć konkretne rozmowy i kanały przez wpisanie nazwy lub frazy kluczowej. System przeszukuje w czasie rzeczywistym całą listę czatów i dostępnych kanałów, wyświetlając pasujące wyniki.",
+          "Klovy Chat jest rozwijany jako projekt open source, dzięki czemu jego kod źródłowy jest publicznie dostępny. Każdy może analizować jego działanie, zgłaszać problemy, proponować usprawnienia oraz aktywnie uczestniczyć w rozwoju komunikatora.",
       },
-      invites: {
-        title: "System zaproszenia do grup",
+      privacy: {
+        title: "Prywatność",
         description:
-          "Użytkownicy mogą generować linki zaproszeniowe lub wysyłać bezpośrednie zaproszenia do grup. Zaproszeni użytkownicy otrzymują powiadomienie i mogą zaakceptować lub odrzucić zaproszenie jednym kliknięciem.",
+          "Prywatność jest jednym z fundamentów Klovy Chat. Projekt stawia na ograniczanie niepotrzebnego gromadzenia danych oraz zapewnienie użytkownikom większej kontroli nad informacjami związanymi z korzystaniem z komunikatora.",
       },
-      pinning: {
-        title: "Przypinanie",
+      security: {
+        title: "Bezpieczeństwo",
         description:
-          "Umożliwia oznaczenie najważniejszych wiadomości lub załączników, dzięki czemu są one łatwo dostępne i nie giną wśród pozostałych treści. Przypięte elementy są wyświetlane w specjalnej sekcji lub na górze konwersacji, co ułatwia szybkie odnalezienie istotnych informacji, dokumentów czy plików bez konieczności przeszukiwania całej historii.",
+          "Bezpieczeństwo jest integralną częścią Klovy Chat i jest uwzględniane podczas projektowania kolejnych elementów systemu. Projekt koncentruje się na ochronie kont, komunikacji i danych użytkowników, a otwarty kod ułatwia analizowanie zastosowanych rozwiązań.",
       },
-      stickers: {
-        title: "Naklejki",
+      performance: {
+        title: "Wydajność",
         description:
-          "Funkcja pozwalająca na dodawanie gotowych grafik do wiadomości, dzięki czemu komunikacja staje się bardziej wyrazista i angażująca. Naklejki można wysyłać jako samodzielną wiadomość lub jako uzupełnienie rozmowy, aby w prosty sposób wyrazić emocje, reakcje lub podkreślić przekazywaną treść.",
-      },
-      integrations: {
-        title: "Integracje",
-        description:
-          "Integracje umożliwiają połączenie profilu z zewnętrznymi usługami, takimi jak Spotify i innymi wspieranymi platformami. Dzięki temu inni użytkownicy mogą zobaczyć połączone konta oraz wybrane informacje, takie jak aktualnie odtwarzany utwór, ulubione aktywności czy inne dane udostępniane przez zintegrowane usługi. Integracje pozwalają również wzbogacić profil i ułatwiają dzielenie się zainteresowaniami z innymi.",
-      },
-      voice: {
-        title: "Rozmowy głosowe",
-        description:
-          "Użytkownicy mogą inicjować rozmowy głosowe indywidualne lub grupowe bezpośrednio z czatu. System zapewnia wysoką jakość dźwięku z automatyczną redukcją szumów i możliwością wyciszenia mikrofonu.",
-      },
-      emojis: {
-        title: "System emotikonek",
-        description:
-          "Komunikator oferuje bogatą bibliotekę emotikonek, które użytkownicy mogą wstawiać w wiadomości tekstowe. Dostępne są zarówno standardowe emoji, jak i niestandardowe emotikony specyficzne dla danej społeczności lub grupy.",
+          "Klovy Chat został zaprojektowany z naciskiem na szybkość działania, responsywność i efektywne wykorzystanie zasobów. Celem projektu jest zapewnienie płynnej komunikacji bez niepotrzebnego obciążania urządzenia, również przy korzystaniu z bardziej rozbudowanych możliwości.",
       },
     },
     support: {
-      title: "Wesprzyj Klovy Chat",
+      title: "Wsparcie i kontakt",
       description:
         "Klovy Chat to projekt tworzony z pasji do nowoczesnej, prywatnej i wolnej komunikacji — bez reklam, sprzedaży danych i zbędnego śledzenia użytkowników.\n\nKażde wsparcie pomaga nam rozwijać aplikację, utrzymywać serwery i zwiększać bezpieczeństwo.\n\n**Sposoby wsparcia:**\n\n- Suppi.pl – [https://suppi.pl/klovy-systems](https://suppi.pl/klovy-systems)\n- PayPal – [https://paypal.me/klovy0603](https://paypal.me/klovy0603)\n- Ko-fi – [https://ko-fi.com/klovysystems](https://ko-fi.com/klovysystems)\n\nDziękujemy za wsparcie i bycie częścią społeczności Klovy Chat. 💜",
     },
@@ -81,21 +66,13 @@ export const translations = {
         "Aplikacja Klovy Chat jest w fazie publicznej bety, dlatego prosimy o wyrozumiałość. Pobierz aplikację na",
     },
     footer: {
-      privacy: "Polityka Prywatności",
-      terms1: "Wytyczne dla społeczności",
-      terms2: "Warunki korzystania z usługi",
       documents: "Dokumenty",
-      contact: "Kontakt",
-      app: "Klovy Chat",
       support: "Wsparcie",
       developers: "Deweloperzy",
-      team: "Zespół",
-      socials: "Klovy w socialach",
+      socials: "Social Media",
       legal: "Informacje prawne",
-      openApp: "Otwórz aplikację",
-      github: "GitHub",
-      frontend: "Frontend",
-      backend: "Backend",
+      sourceCode: "Source Code",
+      documentation: "Documentation",
     },
     contact: {
       title: "Kontakt",
@@ -146,7 +123,7 @@ export const translations = {
     nav: {
       about: "About us",
       team: "Our Team",
-      support: "Support",
+      support: "Support & contact",
       download: "Download",
       blog: "Blog",
     },
@@ -164,47 +141,32 @@ export const translations = {
       cta_learn: "Learn More",
     },
     features: {
-      section_title: "Key features",
+      section_title: "Key qualities",
       section_description:
-        "Everything you need for fast and seamless communication - all in one place.",
-      search: {
-        title: "Chat and channel search",
+        "What Klovy Chat is built on — open source, privacy, security, and performance.",
+      openSource: {
+        title: "Open Source",
         description:
-          "Quickly find specific conversations and channels by typing a name or keyword. The system searches your entire chat and channel list in real time and instantly displays matching results.",
+          "Klovy Chat is developed as an open source project, so its source code is publicly available. Anyone can inspect how it works, report issues, propose improvements, and take an active part in developing the messenger.",
       },
-      invites: {
-        title: "Group invitation system",
+      privacy: {
+        title: "Privacy",
         description:
-          "Users can generate invitation links or send direct group invites. Invited users receive a notification and can accept or decline the invitation with a single click.",
+          "Privacy is one of the foundations of Klovy Chat. The project focuses on limiting unnecessary data collection and giving users more control over information related to using the messenger.",
       },
-      pinning: {
-        title: "Pinning",
+      security: {
+        title: "Security",
         description:
-          "This lets you mark the most important messages or attachments so they stay easy to find and do not get lost among the rest of the content. Pinned items are shown in a dedicated section or at the top of the conversation, making it simple to quickly find essential information, documents, or files without searching through the entire chat history.",
+          "Security is an integral part of Klovy Chat and is taken into account when designing each part of the system. The project focuses on protecting accounts, communication, and user data, and the open source code makes it easier to review the solutions in place.",
       },
-      stickers: {
-        title: "Stickers",
+      performance: {
+        title: "Performance",
         description:
-          "This feature lets you add ready-made graphics to your messages, making communication more expressive and engaging. Stickers can be sent as standalone messages or as part of a conversation to quickly express emotions, reactions, or highlight the message being shared.",
-      },
-      integrations: {
-        title: "Integrations",
-        description:
-          "Integrations allow your profile to connect with external services such as Spotify and other supported platforms. This lets other users see your connected accounts and selected information, such as the track you are currently playing, favorite activities, or other data shared by the integrated services. Integrations also help enrich your profile and make it easier to share interests with others.",
-      },
-      voice: {
-        title: "Voice calls",
-        description:
-          "Start one-on-one or group voice calls directly from the chat. The system delivers high-quality audio with automatic noise reduction and an option to mute the microphone.",
-      },
-      emojis: {
-        title: "Emoji system",
-        description:
-          "The messenger includes a rich emoji library that users can insert into text messages. Both standard emojis and custom, community-specific emoticons are available.",
+          "Klovy Chat was designed with an emphasis on speed, responsiveness, and efficient use of resources. The goal is smooth communication without unnecessarily loading the device, even when using more advanced features.",
       },
     },
     support: {
-      title: "Support Klovy Chat",
+      title: "Support & contact",
       description:
         "Klovy Chat is a project created with passion for modern, private, and free communication — without ads, data sales, or unnecessary user tracking.\n\nEvery contribution helps us develop the app, maintain servers, and improve security.\n\n**Ways to support:**\n\n- Suppi.pl – [https://suppi.pl/klovy-systems](https://suppi.pl/klovy-systems)\n- PayPal – [https://paypal.me/klovy0603](https://paypal.me/klovy0603)\n- Ko-fi – [https://ko-fi.com/klovysystems](https://ko-fi.com/klovysystems)\n\nThank you for your support and for being part of the Klovy Chat community. 💜",
     },
@@ -222,21 +184,13 @@ export const translations = {
         "The Klovy Chat application is in public beta, so please bear with us. Download the app on",
     },
     footer: {
-      privacy: "Privacy Policy",
-      terms1: "Community Guidelines",
-      terms2: "Terms of Use",
       documents: "Documents",
-      contact: "Contact",
-      app: "Klovy Chat",
       support: "Support",
       developers: "Developers",
-      team: "Team",
-      socials: "Klovy on Socials",
+      socials: "Social Media",
       legal: "Legal",
-      openApp: "Open app",
-      github: "GitHub",
-      frontend: "Frontend",
-      backend: "Backend",
+      sourceCode: "Source Code",
+      documentation: "Documentation",
     },
     contact: {
       title: "Contact",

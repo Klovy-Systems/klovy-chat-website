@@ -3,17 +3,8 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/i18n/useTranslation";
 import DocumentsModal from "@/components/Documents/DocumentsModal";
-import ContactModal from "@/components/Contact/ContactModal";
+import { SOCIAL_LINKS } from "@/lib/socials";
 import { useState } from "react";
-import Image from "next/image";
-
-const socialLinks = [
-  { label: "Discord", url: "https://discord.com/invite/rcjCTm9MHS" },
-  { label: "LinkedIn", url: "https://www.linkedin.com/company/klovy-systems/" },
-  { label: "Facebook", url: "https://www.facebook.com/klovysystems" },
-  { label: "Instagram", url: "https://www.instagram.com/klovysystems/" },
-  { label: "TikTok", url: "https://www.tiktok.com/@klovysystems" },
-];
 
 type FooterLink = {
   label: string;
@@ -68,63 +59,41 @@ export default function Footer() {
   const { lang } = useLanguage();
   const { t } = useTranslation(lang);
   const [isDocumentsModalOpen, setIsDocumentsModalOpen] = useState(false);
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   return (
     <>
       <footer className="w-full bg-light_bg dark:bg-dark_bg border-t border-light_border dark:border-dark_border">
         <div className="max-w-7xl mx-auto px-spacing_lg xl:px-spacing_xl py-10 md:py-12 w-full">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
-            <div className="lg:w-52 shrink-0 space-y-4">
-              <a href="/" className="inline-flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <Image
-                  src="/brand/logo_colour.svg"
-                  width={36}
-                  height={36}
-                  alt=""
-                  className="h-9 w-9 rounded-full"
-                />
-                <span className="font-bold text-lg tracking-tight text-light_text dark:text-dark_text">
-                  Klovy Chat
-                </span>
-              </a>
+            <div className="lg:w-52 shrink-0">
               <p className="text-sm text-light_text dark:text-dark_text">
-                © {new Date().getFullYear()} Klovy Chat
+                © Copyright {new Date().getFullYear()} Klovy Chat
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-8 flex-1">
-              <FooterColumn
-                title={t("footer.app")}
-                links={[
-                  { label: t("footer.openApp"), href: "https://app.klovy.chat", external: true },
-                  { label: t("nav.download"), href: "/download" },
-                  { label: t("nav.blog"), href: "/blog" },
-                  { label: t("nav.about"), href: "/about" },
-                ]}
-              />
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 flex-1">
               <FooterColumn
                 title={t("footer.support")}
-                links={[
-                  { label: t("nav.support"), href: "/support" },
-                  { label: t("footer.contact"), onClick: () => setIsContactModalOpen(true) },
-                ]}
+                links={[{ label: t("nav.support"), href: "/support" }]}
               />
               <FooterColumn
                 title={t("footer.developers")}
                 links={[
-                  { label: t("footer.github"), href: "https://github.com/klovy-chat", external: true },
-                  { label: t("footer.frontend"), href: "https://github.com/klovy-chat/frontend", external: true },
-                  { label: t("footer.backend"), href: "https://github.com/klovy-chat/backend", external: true },
+                  {
+                    label: t("footer.sourceCode"),
+                    href: "https://github.com/klovy-chat",
+                    external: true,
+                  },
+                  {
+                    label: t("footer.documentation"),
+                    href: "https://docs.klovy.chat/",
+                    external: true,
+                  },
                 ]}
               />
               <FooterColumn
-                title={t("footer.team")}
-                links={[{ label: t("nav.team"), href: "/team" }]}
-              />
-              <FooterColumn
                 title={t("footer.socials")}
-                links={socialLinks.map((item) => ({
+                links={SOCIAL_LINKS.map((item) => ({
                   label: item.label,
                   href: item.url,
                   external: true,
@@ -133,10 +102,10 @@ export default function Footer() {
               <FooterColumn
                 title={t("footer.legal")}
                 links={[
-                  { label: t("footer.privacy"), href: t("documents.privacyUrl") },
-                  { label: t("footer.terms2"), href: t("documents.termsUrl") },
-                  { label: t("footer.terms1"), href: t("documents.guidelinesUrl") },
-                  { label: t("footer.documents"), onClick: () => setIsDocumentsModalOpen(true) },
+                  {
+                    label: t("footer.documents"),
+                    onClick: () => setIsDocumentsModalOpen(true),
+                  },
                 ]}
               />
             </div>
@@ -147,10 +116,6 @@ export default function Footer() {
       <DocumentsModal
         isOpen={isDocumentsModalOpen}
         onClose={() => setIsDocumentsModalOpen(false)}
-      />
-      <ContactModal
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
       />
     </>
   );

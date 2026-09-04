@@ -31,7 +31,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="#features"
+              href="#cechy"
               className="px-spacing_xl py-spacing_sm border border-light_border dark:border-dark_border rounded-xl text-light_text dark:text-dark_text hover:bg-primary/10 hover:border-primary hover:text-primary transition-all duration-300 flex items-center justify-center"
             >
               {t("hero.cta_learn")}
