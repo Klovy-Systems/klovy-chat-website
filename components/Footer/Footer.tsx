@@ -34,8 +34,8 @@ export default function Footer() {
 
   return (
     <>
-      <div className="w-full px-3 sm:px-5 pb-8 pt-6">
-        <footer className="max-w-7xl mx-auto rounded-[2rem] md:rounded-[2.5rem] bg-white/90 dark:bg-[#14131c] border border-light_border dark:border-white/10 px-8 py-10 md:px-12 md:py-12 shadow-[0_8px_32px_rgba(11,10,18,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.28)]">
+      <div className="w-full px-3 sm:px-4 pb-8 pt-6">
+        <footer className="max-w-[84rem] mx-auto rounded-[2rem] md:rounded-[2.5rem] bg-white/90 dark:bg-[#14131c] border border-light_border dark:border-white/10 px-8 py-10 md:px-12 md:py-12 shadow-[0_8px_32px_rgba(11,10,18,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.28)]">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
             <div className="lg:col-span-4 space-y-4">
               <a href="/" className="inline-flex items-center gap-3 hover:opacity-80 transition-opacity">
