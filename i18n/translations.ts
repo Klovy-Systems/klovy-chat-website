@@ -67,12 +67,10 @@ export const translations = {
     },
     footer: {
       documents: "Dokumenty",
-      support: "Wsparcie",
-      developers: "Deweloperzy",
-      socials: "Social Media",
-      legal: "Informacje prawne",
-      sourceCode: "Source Code",
-      documentation: "Documentation",
+      status: "Status",
+      documentation: "Dokumentacja",
+      helpTranslate: "Pomóż tłumaczyć",
+      download: "Pobierz Klovy Chat",
     },
     contact: {
       title: "Kontakt",
@@ -185,12 +183,10 @@ export const translations = {
     },
     footer: {
       documents: "Documents",
-      support: "Support",
-      developers: "Developers",
-      socials: "Social Media",
-      legal: "Legal",
-      sourceCode: "Source Code",
+      status: "Status",
       documentation: "Documentation",
+      helpTranslate: "Help translate",
+      download: "Download Klovy Chat",
     },
     contact: {
       title: "Contact",
